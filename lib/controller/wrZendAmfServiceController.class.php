@@ -1,16 +1,30 @@
 <?php
+
+
 class wrZendAmfServiceController extends sfWebController
 {
-  public function initialize($context)
-  {
-    parent::initialize($context);
 
-    var_dump($this);
-  }
+  /**
+   * Contains the Zend AMF Server object.
+   *
+   * @var Zend_Amf_Server
+   */
+  protected $zendAmfServer = null;
+
 
   public function dispatch()
   {
-    var_dump($this);
+
+  }
+
+  protected function initZendAMFServer()
+  {
+    // server already initialized
+    if ($this->zendAmfServerObj instanceof Zend_Amf_Server)
+    {
+      // abort
+      return ;
+    }
   }
 }
 ?>
